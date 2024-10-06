@@ -1,0 +1,104 @@
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    height: 80vh;
+    width: 87vh;
+    display: flex;
+    flex-direction: column;
+  }
+   
+  .close-button {
+    background-color: #d32f2f;
+    color: white;
+    font-size: 14px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-transform: none;
+  }
+  
+  .close-button:hover {
+    background-color: #c62828;
+  }
+  
+  .close-button:focus {
+    outline: none;
+  }
+
+.flex-column-model {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.error-item-model {
+    border: 1px solid;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 23px;
+}
+
+.plc-id-model {
+    height: 20%;
+}
+
+.status-model {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    gap: 10px;
+}
+
+.status-error-model {
+    height: 20%;
+    align-items: center;
+    gap: 10px;
+}
+
+.start-end-time-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.error-description-model {
+    height: 20%;
+}
+
+.error-description-text {
+  word-wrap: break-word;
+  max-width: 100%;
+  margin-left: 5px;
+}
+
+.start-time-model, .end-time-model {
+  height: 20%;
+  display: flex;
+  flex-direction: row;
+}
+
+.model-font{
+  font-weight: bold;
+  color: #555;
+}

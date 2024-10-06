@@ -1,0 +1,42 @@
+<div class="modal modal-model" *ngIf="isOpen">
+  <mat-dialog-content>
+      <div class="modal-content modal-content-model">
+          <div class="flex-column-model">
+              <div *ngFor="let error of content | slice:4" class="error-item-model">
+                  <div class="plc-id-model">
+                      <span class="model-font">PLC ID:</span>
+                      <span>{{error.plcId}}</span>
+                  </div>
+                  <div class="status-model">
+                      <div class="status-error-model">
+                          <span class="model-font">STATUS WHILE ERROR HAPPENED:</span>
+                          <span>
+                              <img src="{{error.statusImage}}"
+                                   style="height: 57%; width: 3%;"
+                                   [style.filter]="error.filterColor" />
+                              {{error.status}}
+                          </span>
+                      </div>
+                      <div class="error-description-model">
+                      <span class="model-font">ERROR DESCRIPTION: </span><span class="error-description-text">{{error.errorDesc}}</span>
+                      </div>
+
+                    <div class="start-end-time-container">
+                      <div class="start-time-model">
+                          <span class="model-font">START TIME:</span>
+                          <span>{{error.startTime}}</span>
+                      </div>
+                      <div class="end-time-model">
+                          <span class="model-font">END TIME:</span> <span>{{error.endTime}}</span>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+          <button mat-raised-button color="warn" 
+                  class="close-button close-button-model" 
+                  (click)="close()">Close
+          </button>
+      </div>
+  </mat-dialog-content>
+</div>

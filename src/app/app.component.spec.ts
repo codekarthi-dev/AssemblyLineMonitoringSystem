@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'assembly-line-monitoring-system' title`, () => {
+  it(`should have the 'AssemblyLineMonitorySystem' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('assembly-line-monitoring-system');
+    expect(app.title).toEqual('AssemblyLineMonitorySystem');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, assembly-line-monitoring-system');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, AssemblyLineMonitorySystem');
   });
 });

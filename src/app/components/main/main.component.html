@@ -1,0 +1,140 @@
+<div class="container">
+  <aside class="sidebar">
+    <div class="logo">
+      <div><img src="/assets/logo.png" /></div>
+    </div>
+    <div class="sidenav-menu">
+      <ul class="sidenav-menu-list">
+        <div class="sidenav-items-main">
+          <li class="sidenav-list">
+            <img src="/assets/reports.svg" /> <a href="#">Reports</a>
+          </li>
+        </div>
+        <div class="sidenav-items">
+          <li class="sidenav-list">
+            <img src="/assets/notification.svg" /><a href="#">Notifications</a>
+          </li>
+        </div>
+      </ul>
+    </div>
+    <p class="support-text">Support</p>
+    <div class="sidenav-menu">
+      <ul class="sidenav-menu-list">
+        <div class="sidenav-items">
+          <li class="sidenav-list">
+            <img src="/assets/book.svg" /> <a href="#">Get Started</a>
+          </li>
+        </div>
+        <div class="sidenav-items">
+          <li class="sidenav-list">
+            <img src="/assets/settings.svg" /><a href="#">Settings</a>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </aside>
+  <main class="content">
+    <header class="header">
+      <div class="date-time">
+        <span>{{dateTime | date : 'short'}}</span>
+      </div>
+      <div
+        class="assembly-status"
+        style="display: flex; flex-direction: column"
+      >
+        <div class="header-right-text">
+          <span>Assembly line Status: </span
+          ><span class="status-running">Running</span>
+        </div>
+        <span class="header-right-text-down">Shift: Night Shift</span>
+      </div>
+    </header>
+    <div
+      style="
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+        margin-top: 15px;
+      "
+    >
+    
+      <section class="machine-status">
+        <h2>Machine Status</h2>
+        <div class="plc-status">
+          <div *ngFor="let plc of plcStatus | slice: 0:3" class="plc">
+            <span>{{ plc.id }}</span>
+            <img
+              [src]="plc.image"
+              [alt]="plc.statusValue"
+              class="plc-image {{ plc.colour }}"
+            />
+          </div>
+        </div>
+        <mat-form-field class="select-plc">
+          <mat-label>Choose plc</mat-label>
+          <mat-select [(ngModel)]="plc" name="plc">
+            @for (plc of plcList; track plc) {
+            <mat-option [value]="plc">{{ plc }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <div class="machine-metrics">
+          <div class="metric-operationalload">
+            <span class="metric-text">Operational Load</span>
+            <h1 class="metric-load">64%</h1>
+          </div>
+          <div class="metric">
+            <span class="metric-text">Output Speed</span>
+            <img src="/assets/Graph.svg" alt="PLC3 Status" class="plc-image" />
+          </div>
+          <div class="metric">
+            <span class="metric-text">Operational Temp</span>
+            <img src="/assets/Graph.svg" alt="PLC3 Status" class="plc-image" />
+          </div>
+        </div>
+        <div class="production-status">
+          <h3>Production Status</h3>
+          <div class="chart">
+            <canvas id="MyChart" class="charts">{{ chart }}</canvas>
+          </div>
+        </div>
+      </section>
+      
+      <section class="notifications">
+      
+        <div class="notification-text">
+          <h2>Notifications</h2><span >
+          <div style="display: flex; flex-direction: row;">
+            <img src="/assets/download.svg" alt="download" ><span><p class="download-button">Download</p></span>
+          </div> 
+          </span>
+        </div>
+        <div class="notification-list-div">
+          <ul>
+            <div
+              *ngFor="let error of errors | slice : 0 : 7"
+              class="notification-list"
+            >
+              <div>
+                <li style="list-style: none">
+                  <span>PLC ID: {{ error.plcId }}</span>
+                  <span class="error">Status: {{ error.status }}</span>
+                  <span>Error Description: {{ error.errorDesc }}</span>
+                  <span>Start Time: {{ error.startTime }}</span>
+                  <span>End Time: {{ error.endTime }}</span>
+                </li>
+              </div>
+              <div style="height: 120px; width: 120px">
+                <img
+                  [src]="error.statusImage"
+                  alt="PLC Status"
+                  class="plc-image {{error.colour }}"
+                />
+              </div>
+            </div>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
