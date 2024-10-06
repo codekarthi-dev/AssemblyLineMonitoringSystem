@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-// import { MatButtonModule } from '@angular/material/button'; // Import MatButtonModule
 import {FormControl } from '@angular/forms';
 import { ErrorInfo } from './main.component.model';
 
@@ -11,7 +10,7 @@ Chart.register(...registerables);
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
-  styleUrls: ['./main.component.css'] // Corrected 'styleUrl' to 'styleUrls'
+  styleUrls: ['./main.component.css']
 })
 
 
@@ -51,11 +50,11 @@ export class MainComponent implements OnInit, OnDestroy {
       },
       plugins: {
         legend: {
-          display: true, // Keep the legend visible
+          display: true,
           labels: {
-            usePointStyle: true, // Use point style for labels instead of rectangles
+            usePointStyle: true,
             padding: 20,
-            boxHeight:0 // Adjust padding for better spacing
+            boxHeight:0
           }
         }
       }
@@ -175,21 +174,6 @@ export class MainComponent implements OnInit, OnDestroy {
     { id: "PLC 4", image: '/assets/electric-electricity-svgrepo-com.svg', label: 'ELECTRICAL FAULT', statusValue: "PLC4 Status", colour: "orange" },
     { id: "PLC 5", image: '/assets/mechanical-arm-svgrepo-com.svg', label: 'MECHANICAL FAULT', statusValue: "PLC5 Status", colour: "red" }
   ];
-
-  // plcStatusData : any = [
-  //   {
-  //     plcID : 1, 
-  //     plcStatus : 1,
-  //   },
-  //   {
-  //     plcID : 2, 
-  //     plcStatus : 3,
-  //   },
-  //   {
-  //     plcID : 3, 
-  //     plcStatus : 5,
-  //   }
-  // ]
 
   dateTime: Date = new Date();
   isModalOpen: boolean = false;

@@ -13,9 +13,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
-
 
 
 @NgModule({
@@ -30,7 +28,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatDialogModule,
     AppRoutingModule,
-    MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, ReactiveFormsModule,MatSidenavModule,MatIconModule
+    MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, ReactiveFormsModule,MatIconModule
     ],
   providers: [
     provideClientHydration(),
